@@ -9,7 +9,7 @@
     
   },
   "keywords": [],
-  "author": "",
+  "author": "Chris Auld",
   "license": "ISC",
   "dependencies": {
     "@polymer/lit-element": "^0.7.1",
