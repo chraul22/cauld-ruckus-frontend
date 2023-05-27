@@ -6,7 +6,7 @@ class App {
   constructor(){
     this.name = "TheRuckus"
     this.version = "1.0.0"
-    this.apiBase = 'https://cauld-ruckus-backend.herokuapp.com/'
+    this.apiBase = 'https://git.heroku.com/cauld-ruckus-backend.git'
     this.rootEl = document.getElementById("root")
   }
   
