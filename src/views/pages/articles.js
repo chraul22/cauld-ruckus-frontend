@@ -10,20 +10,20 @@ import ArticleAPI from '../../ArticleAPI';
 
 class ArticleView {
   async init() {
-    document.title = 'Articles'
-    this.articles = null
+    document.title = 'Articles';
+    this.articles = null;
     this.render();
     Utils.pageIntroAnim();
-    this.getArticles()
+    this.getArticles();
   }
 
   async getArticles() {
     try {
       this.articles = await ArticleAPI.getArticles();
-      this.articles = this.articles.filter(articles => articles.status == 'approved' )
-               this.render()
+      this.articles = this.articles.filter(article => article.status === 'approved');
+      this.render();
     } catch (err) {
-      Toast.show(err, 'error')
+      Toast.show(err, 'error');
     }
   }
 
