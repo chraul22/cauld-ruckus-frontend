@@ -6,7 +6,7 @@ class App {
   constructor(){
     this.name = "TheRuckus"
     this.version = "1.0.0"
-    this.apiBase = 'https://main--symphonious-lily-d24c48.netlify.app/'
+    this.apiBase = 'https://cauld-ruckus-backend.herokuapp.com'
     this.rootEl = document.getElementById("root")
   }
   
