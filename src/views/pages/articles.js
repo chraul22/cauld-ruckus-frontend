@@ -40,24 +40,26 @@ class ArticleView {
   }
 
   render() {
-
-     const template = html`
+    const template = html`
       <va-app-header user="${JSON.stringify(Auth.currentUser)}"></va-app-header>
       <div class="page-content">
-      <div class = "cards-col">
-        ${this.articles == null ? html`` : html`
-              ${this.articles.map(article => html`
-            <sl-card class="article-card">
-            <img 
-              src="${App.apiBase}/images/${article.heroImage}" 
-              alt="${article.title}" slot="image"
-              >
-              <h2>${article.title}</h2>
-             <p> ${this.formatContentIntoParagraphs(article.content)}</p>
-            </sl-card>
-          `)}
-        `}
-      </div>
+        <div class="cards-col">
+          ${this.articles === null
+            ? html``
+            : this.articles.map(
+                article => html`
+                  <sl-card class="article-card">
+                    <img
+                      src="${App.apiBase}/images/${article.heroImage}"
+                      alt="${article.title}"
+                      slot="image"
+                    />
+                    <h2>${article.title}</h2>
+                    <p>${this.formatContentIntoParagraphs(article.content)}</p>
+                  </sl-card>
+                `
+              )}
+        </div>
       </div>
     `;
     render(template, document.querySelector('#root'));

@@ -55,18 +55,22 @@ class ReviewView {
     }
     this.render();
   }
-
+  
   render() {
     const template = html`
       <va-app-header user="${JSON.stringify(Auth.currentUser)}"></va-app-header>
       <div class="page-content">
         <div class="cards-col">
-          ${this.articles == null
+          ${this.articles === null
             ? html``
-            : html`
-                ${this.articles.map(article => html`
+            : this.articles.map(
+                article => html`
                   <sl-card class="article-card" data-article-id="${article._id}">
-                    <img src="${App.apiBase}/images/${article.heroImage}" alt="${article.title}" slot="image">
+                    <img
+                      src="${App.apiBase}/images/${article.heroImage}"
+                      alt="${article.title}"
+                      slot="image"
+                    />
                     <h2>${article.title}</h2>
                     <p>${this.formatContentIntoParagraphs(article.content)}</p>
                     <div>
@@ -76,12 +80,12 @@ class ReviewView {
                       <sl-button class="reject-btn" @click="${() => this.updateArticleStatusHandler(article._id, 'pending')}">Reject</sl-button>
                     </div>
                   </sl-card>
-                `)}
-              `}
+                `
+              )}
         </div>
       </div>
     `;
-
+  
     render(template, document.querySelector('#root'));
   }
 }
