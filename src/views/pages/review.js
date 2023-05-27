@@ -23,12 +23,13 @@ class ReviewView {
       if (Auth.currentUser.accessLevel !== 2) {
         throw new Error('Sorry, you are not an editor yet');
       }
-      this.articles = await ArticleAPI.getArticles();
-      this.articles = this.articles.filter(article => article.status === 'pending');
+  
+      const articles = await ArticleAPI.getArticles();
+      this.articles = articles.filter(article => article.status === 'pending');
       this.render();
     } catch (err) {
       Toast.show(err, 'error');
-      console.log(Toast.show)
+      console.log(Toast.show);
     }
   }
 
@@ -55,7 +56,7 @@ class ReviewView {
     }
     this.render();
   }
-  
+
   render() {
     const template = html`
       <va-app-header user="${JSON.stringify(Auth.currentUser)}"></va-app-header>
